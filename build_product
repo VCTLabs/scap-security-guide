@@ -360,6 +360,7 @@ all_cmake_products=(
 	EKS
 	FEDORA
 	FIREFOX
+	GENTOO2
 	OCP4
 	RHCOS4
 	OL7
