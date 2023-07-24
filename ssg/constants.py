@@ -48,6 +48,7 @@ product_directories = [
     'eks',
     'fedora',
     'firefox',
+    'gentoo2',
     'macos1015',
     'ocp4',
     'rhcos4',
@@ -207,6 +208,7 @@ FULL_NAME_TO_PRODUCT_MAPPING = {
     "Amazon Elastic Kubernetes Service": "eks",
     "Fedora": "fedora",
     "Firefox": "firefox",
+    "Gentoo 2": "gentoo2",
     "Apple macOS 10.15": "macos1015",
     "Red Hat OpenShift Container Platform 4": "ocp4",
     "Red Hat Enterprise Linux CoreOS 4": "rhcos4",
@@ -278,7 +280,7 @@ REFERENCES = dict(
 
 MULTI_PLATFORM_LIST = ["rhel", "fedora", "rhv", "debian", "ubuntu",
                        "openeuler",
-                       "opensuse", "sle", "ol", "ocp", "rhcos",
+                       "opensuse", "sle", "ol", "ocp", "rhcos", "gentoo",
                        "example", "eks", "alinux", "uos", "anolis", "openembedded"]
 
 MULTI_PLATFORM_MAPPING = {
@@ -288,6 +290,7 @@ MULTI_PLATFORM_MAPPING = {
     "multi_platform_example": ["example"],
     "multi_platform_eks": ["eks"],
     "multi_platform_fedora": ["fedora"],
+    "multi_platform_gentoo": ["gentoo2"],
     "multi_platform_openeuler": ["openeuler2203"],
     "multi_platform_opensuse": ["opensuse"],
     "multi_platform_ol": ["ol7", "ol8", "ol9"],
@@ -453,6 +456,7 @@ MAKEFILE_ID_TO_PRODUCT_MAP = {
     'chromium': 'Google Chromium Browser',
     'fedora': 'Fedora',
     'firefox': 'Mozilla Firefox',
+    'gentoo': 'Gentoo Hardened',
     'macos': 'Apple macOS',
     'rhel': 'Red Hat Enterprise Linux',
     'rhv': 'Red Hat Virtualization',
