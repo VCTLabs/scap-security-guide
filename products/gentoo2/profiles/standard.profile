@@ -1,6 +1,6 @@
 documentation_complete: true
 
-title: 'Standard System Security Profile for Gentoo 2.x'
+title: 'Standard System Security Profile for Gentoo 2'
 
 description: |-
     This profile contains rules to ensure standard security baseline
@@ -24,7 +24,6 @@ selections:
     - package_inetutils-telnetd_removed
     - package_telnetd-ssl_removed
     - package_nis_removed
-    - package_ntpdate_removed
     - service_auditd_enabled
     - service_cron_enabled
     - service_ntp_enabled

@@ -2,22 +2,21 @@ product: gentoo2
 full_name: Gentoo 2
 type: platform
 
+benchmark_id: GENTOO-2
 benchmark_root: "../../linux_os/guide"
-
 components_root: "../../components"
 
 profiles_root: "./profiles"
 
+sshd_distributed_config: "true"
+
 pkg_manager: "portage"
 
-init_system: "openrc"
+init_system: "systemd"
 
 cpes_root: "../../shared/applicability"
 cpes:
-  new_product:
-    name: "cpe:/o:gentoo:2"
-    title: "Gentoo 2"
-    check_id: installed_OS_is_gentoo2
-
-reference_uris:
-  cis: 'https://benchmarks.cisecurity.org/tools2/linux/CIS_Gentoo_Benchmark_v1.0.pdf'
+  - gentoo2:
+      name: "cpe:/o:gentoo:gentoo:2"
+      title: "Gentoo 2"
+      check_id: installed_OS_is_gentoo2
