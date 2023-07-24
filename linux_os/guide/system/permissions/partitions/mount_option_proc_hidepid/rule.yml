@@ -1,6 +1,5 @@
 documentation_complete: true
 
-
 title: 'Add hidepid Option to /proc'
 
 description: |-
@@ -28,6 +27,8 @@ warnings:
         it may also convey a false sense of security.
         {{% if 'rhel' in product %}}
         Proceed to {{{ weblink(link="https://access.redhat.com/solutions/6704531") }}} for more details.
+        {{% else %}}
+        Proceed to {{{ weblink(link="https://wiki.gentoo.org/wiki/Elogind#Conflict_when_using_hidepid_in_proc") }}} for more details.
         {{% endif %}}
 
 {{{ complete_ocil_entry_mount_option("/proc", "hidepid=value") }}}
