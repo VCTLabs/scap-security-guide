@@ -11,6 +11,7 @@ profiles_root: "./profiles"
 sshd_distributed_config: "true"
 
 pkg_manager: "portage"
+pkg_manager_config_file: "/etc/portage/repos.conf/gentoo.conf"
 
 init_system: "systemd"
 
