@@ -268,10 +268,10 @@ Therefore, you need to use a tool that can query the OCP API, retrieve the follo
 #}}
 {{% macro describe_iptables_block(proto, port) -%}}
 {{{ _iptables_desc(
-	traffic_action="to block",
-	how_to_do="Remove the following line, ensuring that it does not appear the INPUT chain:",
-	proto=proto,
-	port=port
+    traffic_action="to block",
+    how_to_do="Remove the following line, ensuring that it does not appear the INPUT chain:",
+    proto=proto,
+    port=port
 ) }}}
 {{%- endmacro %}}
 
@@ -287,10 +287,10 @@ Therefore, you need to use a tool that can query the OCP API, retrieve the follo
 #}}
 {{% macro describe_iptables_allow(proto, port) -%}}
 {{{ _iptables_desc(
-	traffic_action="to allow",
-	how_to_do="Add the following line, ensuring that it appears before the final LOG and DROP lines for the INPUT chain:",
-	proto=proto,
-	port=port
+    traffic_action="to allow",
+    how_to_do="Add the following line, ensuring that it appears before the final LOG and DROP lines for the INPUT chain:",
+    proto=proto,
+    port=port
 ) }}}
 {{%- endmacro %}}
 
@@ -736,6 +736,38 @@ JINJA MACRO ERROR - Unknown init system '{{{ init_system }}}'.
 
 
 {{#
+    Show how to install a package with portage.
+
+    Example output::
+
+        $ sudo emerge -v package
+
+:param package: Package to install
+:type package: str
+
+#}}
+{{%- macro portage_package_install(package) %}}
+    $ sudo emerge -v {{{ package }}}
+{{%- endmacro %}}
+
+
+{{#
+    Show how to remove a package with portage.
+
+    Example output::
+
+        $ sudo emerge -v --depclean package
+
+:param package: Package to remove
+:type package: str
+
+#}}
+{{%- macro portage_package_remove(package) %}}
+    $ sudo emerge -v --depclean {{{ package }}}
+{{%- endmacro %}}
+
+
+{{#
 Outputs a command for installing a package, substituting the correct package
 management software.
 
@@ -747,6 +779,8 @@ management software.
   {{% if pkg_manager is defined %}}
     {{%- if pkg_manager == "apt_get" -%}}
         {{{ apt_get_package_install(package) }}}
+    {{%- elif pkg_manager == "portage" -%}}
+        {{{ portage_package_install(package) }}}
     {{%- elif pkg_manager == "zypper" -%}}
         {{{ zypper_package_install(package) }}}
     {{%- elif pkg_manager == "yum" -%}}
@@ -783,6 +817,8 @@ management software.
   {{% if pkg_manager is defined %}}
     {{%- if pkg_manager == "apt_get" -%}}
         {{{ apt_get_package_remove(package) }}}
+    {{%- elif pkg_manager == "portage" -%}}
+        {{{ portage_package_remove(package) }}}
     {{%- elif pkg_manager == "zypper" -%}}
         {{{ zypper_package_remove(package) }}}
     {{%- elif pkg_manager == "yum" -%}}

@@ -354,12 +354,12 @@ fi
 # of a particular audit rule. The scheme is as follows:
 #
 # -----------------------------------------------------------------------------------------
-# Tool used to load audit rules	| Rule already defined	|  Audit rules file to inspect	  |
+# Tool used to load audit rules | Rule already defined  |  Audit rules file to inspect    |
 # -----------------------------------------------------------------------------------------
-#	auditctl		|     Doesn't matter	|  /etc/audit/audit.rules	  |
+#   auditctl        |     Doesn't matter    |  /etc/audit/audit.rules     |
 # -----------------------------------------------------------------------------------------
-# 	augenrules		|          Yes		|  /etc/audit/rules.d/*.rules	  |
-# 	augenrules		|          No		|  /etc/audit/rules.d/$key.rules  |
+#   augenrules      |          Yes      |  /etc/audit/rules.d/*.rules     |
+#   augenrules      |          No       |  /etc/audit/rules.d/$key.rules  |
 # -----------------------------------------------------------------------------------------
 files_to_inspect=()
 
@@ -457,6 +457,8 @@ fi
 DEBIAN_FRONTEND=noninteractive apt-get install -y "{{{ package }}}"
 {{%- elif pkg_manager == "zypper" -%}}
 zypper install -y "{{{ package }}}"
+{{%- elif pkg_manager == "portage" -%}}
+emerge -v "{{{ package }}}"
 {{%- else -%}}
 {{{ die("Can't generate a remediation for " + pkg_manager) }}}
 {{%- endif -%}}
@@ -495,6 +497,8 @@ fi
 DEBIAN_FRONTEND=noninteractive apt-get remove -y "{{{ package }}}"
 {{%- elif pkg_manager == "zypper" -%}}
 zypper remove -y "{{{ package }}}"
+{{%- elif pkg_manager == "portage" -%}}
+emerge --depclean -v "{{{ package }}}"
 {{%- else -%}}
 {{{ die("Can't generate a remediation for " + pkg_manager) }}}
 {{%- endif -%}}

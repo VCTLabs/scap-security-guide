@@ -85,6 +85,12 @@ args:
     pkgname: polkit
   postfix:
     pkgname: postfix
+  psacct:
+    {{% if product in ["gentoo2",] %}}
+      pkgname: acct
+    {{% else %}}
+      pkgname: psacct
+    {{% endif %}}
   rsh-server:
     pkgname: rsh-server
   shadow-utils:

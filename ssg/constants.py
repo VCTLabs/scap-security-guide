@@ -191,14 +191,13 @@ PKG_MANAGER_TO_SYSTEM = {
     "zypper": "rpm",
     "dnf": "rpm",
     "apt_get": "dpkg",
-    "portage": "emerge",
+    "portage": "ebuild",
 }
 
 PKG_MANAGER_TO_CONFIG_FILE = {
     "yum": "/etc/yum.conf",
     "dnf": "/etc/dnf/dnf.conf",
     "zypper": "/etc/zypp/zypper.conf",
-    "portage": "/etc/portage/make.conf",
 }
 
 FULL_NAME_TO_PRODUCT_MAPPING = {
@@ -423,7 +422,7 @@ MAKEFILE_ID_TO_PRODUCT_MAP = {
     'chromium': 'Google Chromium Browser',
     'fedora': 'Fedora',
     'firefox': 'Mozilla Firefox',
-    'gentoo': 'Gentoo Hardened',
+    'gentoo': 'Gentoo',
     'macos': 'Apple macOS',
     'kylinserver': 'Kylin Server',
     'rhel': 'Red Hat Enterprise Linux',
