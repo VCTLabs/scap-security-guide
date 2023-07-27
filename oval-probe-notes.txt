@@ -1,0 +1,70 @@
+From oval probe test file source:
+
+probe system info:
+
+oval_probe_session_t *sess = oval_probe_session_new(sys_model)
+oval_probe_query_sysinfo(sess, &info)
+
+system info returns:
+
+a = oval_sysinfo_get_os_name(info),
+b = oval_sysinfo_get_os_version(info),
+c = oval_sysinfo_get_os_architecture(info),
+d = oval_sysinfo_get_primary_host_name(info));
+
+
+From dpkginfo_probe.c source:
+
+/*
+ * dpkginfo probe:
+ *
+ *  dpkginfo_object(string name)
+ *
+ *  dpkginfo_state(string name,
+ *                string arch,
+ *                string epoch,
+ *                string release,
+ *                string version,
+ *                string evr,
+ *                string signature_keyid)
+ */
+
+From OVAL schema defs (see linux-defs xsd file below) these are defined as:
+
+* name - name of package to check
+* arch - architecture of package
+* epoch - epoch number of package, for null epoch (or '(none)' as returned by dpkg) the string '(none)' should be used
+* release - release number of the package
+* version - version number of the package
+* evr - represents the epoch, version, and ebuild revision fields for a package as a single version string. It has the form "EPOCH:UPSTREAM_VERSION-EBUILD_REVISION" and should normally have the form 0:UPSTREAM_VERSION-EBUILD_REVISION
+* signature_keyid - OS vendor pkg/tree signing key as 64bit 16 character hex string
+
+
+From test_evr_string_comparison.syschar.xml api test file:
+
+  <system_data>
+    <lin-sys:rpminfo_item id="1148441" status="exists">
+      <lin-sys:name>pokus</lin-sys:name>
+      <lin-sys:arch>x86_64</lin-sys:arch>
+      <lin-sys:epoch>0</lin-sys:epoch>
+      <lin-sys:release>6</lin-sys:release>
+      <lin-sys:version>0.4.20.1</lin-sys:version>
+      <lin-sys:evr datatype="evr_string">0:0.4.20.1-6</lin-sys:evr>
+      <lin-sys:signature_keyid>0</lin-sys:signature_keyid>
+    </lin-sys:rpminfo_item>
+  </system_data>
+
+
+From linux-definitions-schema.xsd OVAL 5.11.3 schema file, dpkginfo probe
+defines its own evr_string for version comparisons:
+
+  <xsd:restriction base="oval-def:EntityStateAnySimpleType">
+      <xsd:attribute name="datatype" use="required">
+           <xsd:simpleType>
+                <xsd:restriction base="oval:SimpleDatatypeEnumeration">
+                     <xsd:enumeration value="evr_string"/>
+                     <xsd:enumeration value="debian_evr_string"/>
+                </xsd:restriction>
+           </xsd:simpleType>
+      </xsd:attribute>
+  </xsd:restriction>

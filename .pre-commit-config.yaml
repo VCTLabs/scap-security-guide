@@ -1,7 +1,7 @@
 # To install the git pre-commit hook run:
 #   pre-commit install
 # To update the pre-commit hooks run:
-#   pre-commit install-hooks
+#   pre-commit autoupdate
 exclude: '^(.tox/|.*\.sh$|.*\.html$)'
 repos:
   - repo: meta
@@ -9,7 +9,7 @@ repos:
       - id: check-useless-excludes
       - id: check-hooks-apply
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.5.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
