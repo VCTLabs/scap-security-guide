@@ -1,4 +1,7 @@
+lxml
 pyyaml
 Jinja2
+openpyxl
+json2html
 setuptools
 
