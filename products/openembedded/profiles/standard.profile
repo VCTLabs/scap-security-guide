@@ -125,8 +125,6 @@ selections:
     - require_singleuser_auth
     - require_emergency_target_auth
     - disable_users_coredumps
-    - configure_crypto_policy
-    - var_system_crypto_policy=default_policy
     - dir_perms_world_writable_sticky_bits
     - file_permissions_etc_passwd
     - file_owner_etc_shadow
