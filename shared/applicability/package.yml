@@ -94,9 +94,6 @@ args:
     {{% else %}}
       pkgname: shadow-utils
     {{% endif %}}
-    {{% if product in ["openembedded"] %}}
-      pkgname: shadow-base
-    {{% endif %}}
     {{% else %}}
       pkgname: login
     {{% endif %}}
