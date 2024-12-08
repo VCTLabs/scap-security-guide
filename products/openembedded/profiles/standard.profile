@@ -73,10 +73,15 @@ selections:
     - var_password_pam_remember=5
     - set_password_hashing_algorithm_systemauth
     - var_accounts_maximum_age_login_defs=365
+    # Needs variable: var_accounts_password_set_max_life_existing=365
+    - accounts_maximum_age_login_defs
     - accounts_password_set_max_life_existing
-    - var_accounts_minimum_age_login_defs=7
+    - var_accounts_minimum_age_login_defs=1
+    # Needs variable: var_accounts_password_set_min_life_existing=1
+    - accounts_minimum_age_login_defs
     - accounts_password_set_min_life_existing
     - var_accounts_password_warn_age_login_defs=7
+    - accounts_password_warn_age_login_defs
     - account_disable_post_pw_expiration
     - var_account_disable_post_pw_expiration=30
     - no_shelllogin_for_systemaccounts
