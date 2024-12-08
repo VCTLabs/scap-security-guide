@@ -2,7 +2,7 @@ documentation_complete: true
 
 title: "Set PAM''s Password Hashing Algorithm"
 
-{{% if product in ["sle12", "sle15", "slmicro5"] or 'ubuntu' in product %}}
+{{% if product in ["sle12", "sle15", "slmicro5", "openembedded"] or 'ubuntu' in product %}}
 {{% set pam_passwd_file_path = "/etc/pam.d/common-password" %}}
 {{% else %}}
 {{% set pam_passwd_file_path = "/etc/pam.d/system-auth" %}}
